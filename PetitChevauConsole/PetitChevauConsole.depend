@@ -1,0 +1,34 @@
+# depslib dependency file v1.0
+1423583766 source:c:\users\flo\documents\programmation\petitchevauconsole\main.cpp
+	"constantes.h"
+	"pion.h"
+	"joueur.h"
+
+1423583087 source:c:\users\flo\documents\programmation\petitchevauconsole\src\pion.cpp
+	"Pion.h"
+
+1395624842 c:\users\flo\documents\programmation\petitchevauconsole\include\pion.h
+	"constantes.h"
+
+1424101828 c:\users\flo\documents\programmation\petitchevauconsole\include\constantes.h
+	<iostream>
+	<fstream>
+	<string>
+	<vector>
+	<cstdlib>
+	<ctime>
+	<boost/multi_array.hpp>
+	"Case.h"
+
+1423585693 source:c:\users\flo\documents\programmation\petitchevauconsole\src\joueur.cpp
+	"Joueur.h"
+
+1396715581 c:\users\flo\documents\programmation\petitchevauconsole\include\joueur.h
+	"constantes.h"
+	"Pion.h"
+
+1424101499 source:c:\users\flo\documents\programmation\petitchevauconsole\src\case.cpp
+	"Case.h"
+
+1424101685 c:\users\flo\documents\programmation\petitchevauconsole\include\case.h
+
