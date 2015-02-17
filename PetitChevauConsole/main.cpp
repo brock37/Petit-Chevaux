@@ -32,10 +32,7 @@ void afficherPlateau(char plateau[15][15])
 
 }
 
-//void afficherArray2D(mon_array &plateau)
-//{
-//
-//}
+
 
 int de(int dernierLancer)
 {
@@ -53,7 +50,7 @@ int main()
     initialisation( plateau);
     unsigned int nombrePion=0, nombreAdversaire=0, tourJoueur=0, resDe=0, dernierResDe=0;
     bool gagne= false;
-    mon_array array2D(boost::extents[15][15]);
+    //mon_array array2D(boost::extents[15][15]);
 
     /* initialize random */
     srand (time(NULL));
