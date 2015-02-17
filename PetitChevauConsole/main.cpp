@@ -6,6 +6,38 @@
 
 using namespace std;
 
+void initialisationTableauCase( mon_array &tab)
+{
+    ifstream fichier("plateau.txt", ios::in);
+    char lettre;
+    if( fichier)
+    {
+        for (int i=0; i< LARGEUR_PLATEAU ; i++ )
+        {
+             for (int j=0; j< HAUTEUR_PLATEAU ; j++ )
+                {
+                    fichier >> lettre;
+                    std::cout << lettre ;
+                    tab[i][j].setType(lettre);
+                }
+                std::cout << std::endl;
+        }
+        fichier.close();
+    }
+}
+
+void afficherTableauCase(mon_array &tab)
+{
+    for(int i(0); i < LARGEUR_PLATEAU; i++ )
+    {
+        for(int j(0); j < HAUTEUR_PLATEAU; j++ )
+            std::cout << tab[i][j].getType() << " " ;
+        std::cout << std::endl;
+    }
+
+}
+
+
 void initialisation( char plateau[15][15])
 {
     ifstream fichier("plateau.txt", ios::in);
@@ -33,7 +65,6 @@ void afficherPlateau(char plateau[15][15])
 }
 
 
-
 int de(int dernierLancer)
 {
     int res= (rand() + dernierLancer) % 6 + 1;
@@ -45,12 +76,21 @@ int de(int dernierLancer)
 
 int main()
 {
+
     /**< Initialisation des variables */
-    char plateau[15][15];
-    initialisation( plateau);
+
+    /*char plateau[15][15];
+    initialisation( plateau);*/
+
+
     unsigned int nombrePion=0, nombreAdversaire=0, tourJoueur=0, resDe=0, dernierResDe=0;
     bool gagne= false;
-    //mon_array array2D(boost::extents[15][15]);
+
+
+    /**< Initiamisation du tableau*/
+    mon_array array2D(boost::extents[LARGEUR_PLATEAU][HAUTEUR_PLATEAU]);
+    initialisationTableauCase(array2D);
+    system("pause");
 
     /* initialize random */
     srand (time(NULL));
@@ -75,16 +115,22 @@ int main()
     //joueur.push_back(&joueurBleu);
     //joueur.push_back(&joueurJaune);
 
+/*
     for(unsigned int i(0); i < joueur.size(); i++) joueur[i]->placerChevaux(plateau);
+*/
 
-
-
+    afficherTableauCase(array2D);
+    system("pause");
     do
     {
         system("cls");
         resDe= de(dernierResDe);    // On lance le dé est on affiche son resultat
         dernierResDe= resDe;
+        /*
         afficherPlateau(plateau);
+        */
+        afficherTableauCase(array2D);
+
         joueur[tourJoueur]->afficherEtatJoueur();
 
         if( joueur[tourJoueur]->estUneIA())    //Si le joueur est une ia
@@ -124,9 +170,9 @@ int main()
                     {
                         pionDeplacer= 0;
                     }
-
+/*
                     retour= joueur[tourJoueur]->avancer( resDe, pionDeplacer, plateau);
-
+*/
                     switch(retour)
                     {
                         case 1: std::cout << "Le pion avance" << std::endl; break;
@@ -145,9 +191,9 @@ int main()
                     {
                         pionDeplacer= 0;
                     }
-
+/*
                     retour=joueur[tourJoueur]->sortirCheval(pionDeplacer, plateau);
-
+*/
                     switch(retour)
                     {
                         case 1: std::cout << "Le pion est sortie" << std::endl; break;
@@ -173,9 +219,9 @@ int main()
                     {
                         pionDeplacer= 0;
                     }
-
+/*
                     retour= joueur[tourJoueur]->avancer( resDe, pionDeplacer, plateau);
-
+*/
                     switch(retour)
                     {
                         case 1: std::cout << "Le pion avance" << std::endl; break;
@@ -192,7 +238,12 @@ int main()
         system("pause");
         system("cls");
         std::cout << "Fin du tour!" <<std::endl;
+
+        /*
         afficherPlateau(plateau);
+        */
+        afficherTableauCase(array2D);
+
         joueur[tourJoueur]->afficherEtatJoueur();
         system("pause");
 
@@ -201,6 +252,7 @@ int main()
 
 
     }while(!gagne);
+
 
     return 0;
 }

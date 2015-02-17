@@ -2,7 +2,7 @@
 
 Case::Case()
 {
-    //ctor
+    m_type= 'W';
 }
 
 Case::~Case()

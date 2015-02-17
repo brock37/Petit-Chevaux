@@ -11,6 +11,9 @@
 #include <boost/multi_array.hpp>
 #include "Case.h"
 
+#define LARGEUR_PLATEAU 15
+#define HAUTEUR_PLATEAU 15
+
 typedef boost::multi_array<Case, 2> mon_array;
 
 enum Couleur{ROUGE, BLEU, VERT, JAUNE};
