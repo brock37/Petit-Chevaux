@@ -115,6 +115,8 @@ int main()
     //joueur.push_back(&joueurBleu);
     //joueur.push_back(&joueurJaune);
 
+    /**< Placement initiale des chevaux */
+
 /*
     for(unsigned int i(0); i < joueur.size(); i++) joueur[i]->placerChevaux(plateau);
 */
