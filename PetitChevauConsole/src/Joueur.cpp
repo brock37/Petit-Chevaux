@@ -112,6 +112,40 @@ int Joueur::avancer(int nombreCase, int numeroCheval, char plateau[15][15])
     return 1;
 }
 
+/** \brief
+*implementation de la fonction avancer avec boost multiArray au lieu d'un tableau de char
+*
+*/
+int Joueur::avancer(int nombreCase, int numeroCheval, mon_array &plateau)
+{
+    Coordonnees caseSuivante={0,0};
+    if( numeroCheval > m_nombreDeChevaux-1)
+        return -2;
+    if( m_chevaux[numeroCheval]->estRentrer())
+        return -1;
+
+    plateau[m_chevaux[numeroCheval]->getCoord().x][m_chevaux[numeroCheval]->getCoord().y].setType(m_chevaux[numeroCheval]->getMemoireSol());
+
+    for(nombreCase; nombreCase>0 ; nombreCase--)
+    {
+        caseSuivante= caseDapres(m_chevaux[numeroCheval]->getCoord(), m_chevaux[numeroCheval]->getCaseCourante());
+        if( plateau[caseSuivante.x][caseSuivante.y].getType() == '0'  )//Si il n'y a pas d'autre cheval et que l'on a pas finis le tours on avance
+        {
+            m_chevaux[numeroCheval]->deplacer();
+            m_chevaux[numeroCheval]->goToXY(caseSuivante);
+        }
+        else    //Si il y a un cheval de meme couleur ou que l'on ne peut pas manger le cheval qui nous gene
+        {
+            //placerChevaux( plateau);
+            return -3;
+        }
+
+    }
+
+//    placerChevaux( plateau);
+    return 1;
+}
+
 
 
 void Joueur::afficherEtatJoueur()

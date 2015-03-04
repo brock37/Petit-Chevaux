@@ -1,8 +1,9 @@
 
-
+#include "Case.h"
 #include "constantes.h"
 #include "pion.h"
 #include "joueur.h"
+
 
 using namespace std;
 

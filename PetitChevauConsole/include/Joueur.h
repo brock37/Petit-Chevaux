@@ -13,6 +13,7 @@ class Joueur
         ~Joueur();
         int sortirCheval(int numeroCheval, char plateau[15][15]);
         int avancer(int nombreCase, int numeroCheval, char plateau[15][15]);
+        int avancer(int nombreCase, int numeroCheval, mon_array &plateau);
         void afficherEtatJoueur();
         void placerChevaux(char plateau[15][15]);
         bool estPartit();

@@ -11,6 +11,7 @@
 #include <boost/multi_array.hpp>
 #include "Case.h"
 
+
 #define LARGEUR_PLATEAU 15
 #define HAUTEUR_PLATEAU 15
 
