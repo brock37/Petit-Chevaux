@@ -15,6 +15,8 @@
 #define LARGEUR_PLATEAU 15
 #define HAUTEUR_PLATEAU 15
 
+class Case;
+
 typedef boost::multi_array<Case, 2> mon_array;
 
 enum Couleur{ROUGE, BLEU, VERT, JAUNE};
