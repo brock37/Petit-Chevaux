@@ -1,8 +1,8 @@
 
 
 #include "constantes.h"
-#include "pion.h"
-#include "joueur.h"
+#include "Pion.h"
+#include "Joueur.h"
 
 using namespace std;
 
@@ -51,6 +51,7 @@ int main()
     unsigned int nombrePion=0, nombreAdversaire=0, tourJoueur=0, resDe=0, dernierResDe=0;
     bool gagne= false;
     //mon_array array2D(boost::extents[15][15]);
+    int waiting;
 
     /* initialize random */
     srand (time(NULL));
@@ -58,11 +59,11 @@ int main()
 
     /**< Demande du nombre de pion , de joueur et choix couleur */
     cout << "Jeu des petits chevaux" << endl;
-    std::cout << "Avec combien de pion voulez-vous jouer?" ;
+    std::cout << "Avec combien de pion voulez-vous jouer? " ;
     nombrePion= 1;//cin >> nombrePion;
-    std::cout << "Avec combien de joueur voulez-vous jouer?" ;
+    std::cout << "Avec combien de joueur voulez-vous jouer? " ;
     nombreAdversaire= 1;//cin >> nombreAdversaire;
-
+    cin >> waiting;
     /**< Creation de joueurs avec leur pion  */
     Joueur joueurRouge(nombrePion, ROUGE);
     Joueur joueurVert(nombrePion, VERT, true);
@@ -81,7 +82,7 @@ int main()
 
     do
     {
-        system("cls");
+        system("clear");
         resDe= de(dernierResDe);    // On lance le dé est on affiche son resultat
         dernierResDe= resDe;
         afficherPlateau(plateau);
@@ -189,12 +190,12 @@ int main()
         }
 
 
-        system("pause");
-        system("cls");
+        std::cin >> waiting;
+        system("clear");
         std::cout << "Fin du tour!" <<std::endl;
         afficherPlateau(plateau);
         joueur[tourJoueur]->afficherEtatJoueur();
-        system("pause");
+        std::cin >> waiting;
 
         if(tourJoueur < joueur.size()-1)    {tourJoueur++;}
         else                                {tourJoueur=0;}

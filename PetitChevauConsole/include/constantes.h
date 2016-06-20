@@ -8,10 +8,10 @@
 #include <cstdlib>
 #include <ctime>
 
-#include <boost/multi_array.hpp>
+//#include <boost/multi_array.hpp>
 #include "Case.h"
 
-typedef boost::multi_array<Case, 2> mon_array;
+//typedef boost::multi_array<Case, 2> mon_array;
 
 enum Couleur{ROUGE, BLEU, VERT, JAUNE};
 
