@@ -6,6 +6,7 @@
 #include <string>
 #include <vector>
 #include <cstdlib>
+#include <cstdio>
 #include <ctime>
 
 //#include <boost/multi_array.hpp>
