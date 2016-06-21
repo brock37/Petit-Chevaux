@@ -4,7 +4,10 @@
 #include "Pion.h"
 #include "Joueur.h"
 
+
+
 using namespace std;
+
 
 void initialisation( char plateau[15][15])
 {
@@ -26,10 +29,32 @@ void afficherPlateau(char plateau[15][15])
     for(int i(0); i < 15; i++ )
     {
         for(int j(0); j < 15; j++ )
-            std::cout << plateau[j][i] << " " ;
+        {
+            switch(plateau[j][i])
+            {
+            case 'R':
+
+                std::cout << "\033[1;31m" << plateau[j][i] << "\033[0m" <<" " ;
+            break;
+            case 'V':
+
+                std::cout << "\033[1;32m" << plateau[j][i] << "\033[0m" <<" " ;
+            break;
+            case 'B':
+
+                std::cout << "\033[1;34m" << plateau[j][i] << "\033[0m" <<" " ;
+            break;
+            case 'J':
+
+                std::cout << "\033[1;33m" << plateau[j][i] << "\033[0m" <<" " ;
+            break;
+            default:
+                std::cout << plateau[j][i] << " " ;
+            break;
+            }
+        }
         std::cout << std::endl;
     }
-
 }
 
 
@@ -63,7 +88,9 @@ int main()
     nombrePion= 1;//cin >> nombrePion;
     std::cout << "Avec combien de joueur voulez-vous jouer? " ;
     nombreAdversaire= 1;//cin >> nombreAdversaire;
+
     cin >> waiting;
+
     /**< Creation de joueurs avec leur pion  */
     Joueur joueurRouge(nombrePion, ROUGE);
     Joueur joueurVert(nombrePion, VERT, true);
